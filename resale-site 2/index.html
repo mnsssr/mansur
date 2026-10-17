@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Второй круг — ресейл одежды</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="bar">
+        <div class="logo">второй круг</div>
+        <label class="search"
+          ><input
+            id="q"
+            type="search"
+            placeholder="Поиск по бренду или вещи"
+            aria-label="Поиск"
+        /></label>
+        <nav>
+          <span class="fav-count">Избранное <span id="fc">0</span></span
+          ><button class="sell" id="sellBtn">Продать</button>
+        </nav>
+      </div>
+      <div class="tabs" id="tabs"></div>
+    </header>
+    <main>
+      <div class="filters">
+        <select id="brand" aria-label="Бренд">
+          <option value="">Все бренды</option>
+        </select>
+        <select id="size" aria-label="Размер">
+          <option value="">Любой размер</option>
+        </select>
+        <input
+          id="max"
+          type="number"
+          min="0"
+          placeholder="Цена до, ₽"
+          aria-label="Максимальная цена"
+        />
+        <select id="sort" aria-label="Сортировка">
+          <option value="new">Сначала новые</option>
+          <option value="asc">Сначала дешёвые</option>
+          <option value="desc">Сначала дорогие</option>
+        </select>
+        <button
+          id="onlyFav"
+          aria-pressed="false"
+          class="btn"
+          style="width: auto; padding: 8px 14px; border-color: var(--line)"
+        >
+          Только избранное
+        </button>
+        <span class="count" id="count"></span>
+      </div>
+      <div class="grid" id="grid"></div>
+    </main>
+    <footer>
+      <span>Проверка подлинности</span><span>Безопасная сделка</span
+      ><span>Возврат за 3 дня</span>
+    </footer>
+
+    <dialog id="dlg"></dialog>
+    <dialog id="sellDlg">
+      <button class="x" id="sx" aria-label="Закрыть">×</button>
+      <form class="sellf" id="sf">
+        <h2>Выставить вещь</h2>
+        <label
+          >Бренд<input
+            name="brand"
+            required
+            placeholder="Например, Stone Island"
+        /></label>
+        <label
+          >Название<input name="name" required placeholder="Флисовая куртка"
+        /></label>
+        <div class="row">
+          <label
+            >Цена, ₽<input name="price" type="number" min="1" required
+          /></label>
+          <label>Размер<input name="size" required placeholder="M" /></label>
+        </div>
+        <div class="row">
+          <label>Категория<select name="cat"></select></label>
+          <label
+            >Состояние<select name="cond">
+              <option>Новое</option>
+              <option>Отличное</option>
+              <option>Хорошее</option>
+              <option>С следами носки</option>
+            </select></label
+          >
+        </div>
+        <button class="btn dark" type="submit">Опубликовать</button>
+      </form>
+    </dialog>
+    <dialog id="orderDlg">
+      <button class="x" id="ox" aria-label="Закрыть">×</button>
+      <form class="sellf" id="of">
+        <h2>Оформить заказ</h2>
+        <div id="osum" style="color: var(--mute)"></div>
+        <label>Имя<input name="name" required maxlength="60" /></label>
+        <label
+          >Как с вами связаться<input
+            name="contact"
+            required
+            maxlength="80"
+            placeholder="@telegram, инстаграм или телефон"
+        /></label>
+        <label
+          >Город и адрес доставки<input name="addr" maxlength="200"
+        /></label>
+        <input
+          name="website"
+          tabindex="-1"
+          autocomplete="off"
+          aria-hidden="true"
+          style="position: absolute; left: -9999px"
+        />
+        <button class="btn dark" type="submit" id="osub">
+          Отправить заказ
+        </button>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
