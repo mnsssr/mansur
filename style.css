@@ -178,7 +178,7 @@ main {
 .pic {
   position: relative;
   aspect-ratio: 4/5;
-  background: var(--tone);
+  background: var(--fg);
   display: flex;
   align-items: flex-end;
   padding: 10px;
@@ -191,14 +191,14 @@ main {
   font-size: clamp(13px, 1.3vw, 17px);
   letter-spacing: -0.04em;
   line-height: 1;
-  color: rgba(0, 0, 0, 0.55);
+  color: var(--bg);
 }
 .pic i {
   position: absolute;
   top: 12px;
   right: 12px;
   font-style: normal;
-  background: var(--surface);
+  background: var(--bg);
   color: var(--fg);
   font-size: 12px;
   padding: 3px 10px;
